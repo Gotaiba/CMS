@@ -6,7 +6,7 @@
         $ArtText=$_POST['ArtText'];
         $ArtTitle=$_POST['ArtTitle'];
         $ArtSum=$_POST['ArtSum'];
-        $ImgUrl=$_POST['ImgURL'];
+        $ImgUrl=$_POST['ImgUrl'];
         
         $query="Insert Into articles(Title,SmallDescription,LongDescription,ImageUrl,Posted)
             Values('$ArtTitle','$ArtSum','$ArtText','$ImgUrl','NOW()')";

@@ -29,13 +29,13 @@
                             <button onClick="GetArticelDetails('.$row['Id'].')" class="btn btn-warning">Edit</button>
                             <button onClick="DeleteArticle('.$row['Id'].')" class="btn btn-danger">Delete</button></td>
                         </tr>';
-        }
-        else
-        {
-            $data .='<tr><td colspan="5"> No Article Available </td></tr>';
-        }
-        $data .='</table>';
-        
-        echo $data;
+        }    
     }
+    else
+    {
+         $data .='<tr><td colspan="5"> No Article Available </td></tr>';
+    }
+    $data .='</table>';
+        
+    echo $data;
 ?>

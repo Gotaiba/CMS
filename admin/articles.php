@@ -78,7 +78,7 @@
  
                 <div class="form-group">
                 <label for="ArtSum">Articel Summary</label>
-                <textarea name="ArtSum" id="ArtSum" placeholder="Article Summry Text"></textarea>
+                <textarea name="ArtSum" id="ArtSum"> </textarea>
                 </div>
              <div class="form-group">
                 <img src="../img/noImg.png" name="prvImg" id="prvImg" height="200">
@@ -87,7 +87,7 @@
             
             <div class="form-group">
                 <label for="Arttxt">Articel Text</label>
-                <textarea id="txtEditor" id="Arttxt" name="Arttxt"></textarea>
+                <textarea id="txtEditor" name="Arttxt"></textarea>
                    <br/> <br/>   
             </div>        
  
