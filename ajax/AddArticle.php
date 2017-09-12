@@ -1,20 +1,42 @@
 <?php
-    
-    if(isset($_POST['ArtTitle']) && isset($_POST['ArtSum']) && isset($_POST['ImgUrl']) && isset($_POST['ArtText']))
+    header('Access-Control-Allow-Origin: *');
+    if(isset($_POST['ArtTitle']) && isset($_POST['ArtText']))
     {
         include("../db/connect.php");
         $ArtText=$_POST['ArtText'];
-        $ArtTitle=$_POST['ArtTitle'];
-        $ArtSum=$_POST['ArtSum'];
-        $ImgUrl=$_POST['ImgUrl'];
-        
-        $query="Insert Into articles(Title,SmallDescription,LongDescription,ImageUrl,Posted)
-            Values('$ArtTitle','$ArtSum','$ArtText','$ImgUrl','NOW()')";
-        if(!$result = mysqli_query($db,$query))
+        $ArtTitle=$_POST['ArtTitle'];          
+        $file=$_FILES['ArtImg']['name'];
+        $file_name=$_FILES['ArtImg']['tmp_name'];
+        if(!empty($file))
         {
-            exit(mysqli_error($db));
+            $location='../uploads/';
+            if(move_uploaded_file($file_name,$location.$file))
+            {
+                $query="Insert Into articles(Title,ArticleText,ImageUrl,Posted)
+                Values('$ArtTitle','$ArtText','../uploads/$file',NOW())";
+                if(!$result = mysqli_query($db,$query))
+                {
+                    exit(mysqli_error($db));
+                }
+            }
+            echo 1;
         }
-        echo 'Artilce Inserted';
+        else
+        {
+            if(!empty($ArtText) &&!empty($ArtTitle))
+            {
+                $query="Insert Into articles(Title,ArticleText,ImageUrl,Posted)
+                Values('$ArtTitle','$ArtText','../uploads/noImg.png',NOW())";
+                if(!$result = mysqli_query($db,$query))
+                {
+                    exit(mysqli_error($db));
+                }
+            }
+        }
+    }
+    else
+    {
+        echo 0;
     }
     
 ?>

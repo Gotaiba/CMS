@@ -4,13 +4,12 @@
     
     $data='<table class="table table-bordered">
             <tr>
-                <th>Title</th>
-                <th>Summary</th>
+                <th>Title</th>          
                 <th>Picture</th>
                 <th>Posted</th>
                 <th>Action</th>
             </tr>';
-    $query="Select * from articles";
+    $query="Select * from articles Where IsDeleted=0";
     if(!$result=mysqli_query($db,$query))
     {
         exit(mysqli_error($db));
@@ -21,13 +20,16 @@
         while($row=mysqli_fetch_assoc($result))
         {
             $data .= '<tr>
-                        <td>'.$row['Title'].'</td>
-                        <td>'.$row['SmallDescription'].'</td>
-                        <td><img src="'.$row['ImageUrl'].'" width="100" height="100"/></td>
+                        <td>'.$row['Title'].'</td>                  
+                        <td>
+                        <div class="thumbnailcus table-img">
+                        <img src="'.$row['ImageUrl'].'"/>
+                        </div>
+                        </td>
                         <td>'.$row['Posted'].'</td>
                         <td>
-                            <button onClick="GetArticelDetails('.$row['Id'].')" class="btn btn-warning">Edit</button>
-                            <button onClick="DeleteArticle('.$row['Id'].')" class="btn btn-danger">Delete</button></td>
+                            <button onClick="GetArticleDetails('.$row['Id'].')" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
+                            <button onClick="DeleteArticle('.$row['Id'].')" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button></td>
                         </tr>';
         }    
     }
