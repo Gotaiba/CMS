@@ -145,9 +145,7 @@
 <?php include 'footer.php'  ?>
 <script type="text/javascript" src="../scripts/article.js"></script>
 <script type="text/javascript">
-    tinymce.init({
-    selector: '.editor'
-  });
+ 
         /* var rowperpage = 5;
         $(document).ready(function(){
         getMedia();

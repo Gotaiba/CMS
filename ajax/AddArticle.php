@@ -31,6 +31,12 @@
                 {
                     exit(mysqli_error($db));
                 }
+                else{
+                    echo 1;
+                }
+            }
+            else{
+                echo 0;
             }
         }
     }

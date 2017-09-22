@@ -74,10 +74,9 @@ function DeleteArticle(id) {
         $.post("../ajax/DeleteArticle.php", {
                 id: id
             },
-            function (data, status) {
-            alert(data+' '+status);
+            function (data, status) {    
                 if(data==1 && status=="success")
-                    toastr.success('Article has been modified successfuly','Success Alert',{timeOut:5000});
+                    toastr.success('Article has been deleted successfuly','Success Alert',{timeOut:5000});
                 // reload Users by using readRecords();
                 readArticles();
             }
