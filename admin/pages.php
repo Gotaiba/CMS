@@ -1,4 +1,10 @@
 <?php include 'header.php'?>
+<?php
+    include('../db/connect.php');
+    $query="select * from navigation order by OrderNo";
+    $result=mysqli_query($db,$query)
+    
+?>
 
 <div class="container-fluid">
     <div class="row">
@@ -34,8 +40,22 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-lable col-md-3">Sort Menu</label>
+                            <div class="col-md-9">
+                                <ul id="sortable">
+                                    <?php
+                                        while($row=mysqli_fetch_assoc($result))
+                                        {
+                                            echo '<li id="ID_'.$row['Id'].'"><span>'.$row['Name'].'</span></li>';
+                                        }
+                                    ?>
+                                </ul>
+                                <span id="sortmsg" class="text-info"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <button type="button" class="btn btn-sm btn-primary" onclick="saveHome()">Save</button>
+                                <button type="button" class="btn btn-primary" onclick="saveHome()">Save</button>
                             </div>
                         </div>
                     </div>

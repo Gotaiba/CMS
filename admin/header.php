@@ -1,3 +1,27 @@
+<?php 
+    session_start();
+    $expire=$_SESSION['timeout']+1800;
+    if(!isset($_SESSION['Id']) || empty($_SESSION['Id']))
+    {
+        header('Location: index.php');
+        die();
+    }
+    else 
+    {
+        if($expire<time())
+        {
+            session_destroy();
+            header('Location: index.php');
+            die();
+        }
+        else
+        {
+            include '../functions/getUserInfo.php';
+            $user=getUserInfo($_SESSION['Id']);   
+           
+        }
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,6 +89,12 @@
                         <span style="margin-left:10px;"> Users</span> 
                     </a>
                 </li>
+                <li>
+                    <a href="../admin/logout.php">
+                       <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span style="margin-left:10px;"> Logout</span> 
+                    </a>
+                </li>
                               
             </ul>
         </div>
@@ -75,5 +105,5 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                    
+                    <div class="user-info"><i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp; Welcome <?php echo '<strong>'. $user[0].' '.$user[1].'</strong>';?></div>                     
 

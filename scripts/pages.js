@@ -1,5 +1,9 @@
 function saveHome(){
+    
     var data=new FormData($("#HomePage")[0]);
+    var order = $("#sortable").sortable("serialize");
+    var jso=JSON.stringify(order);
+    data.append('ID',jso);
     $.ajax({
         type:"POST",
         url:"../ajax/SaveHome.php",
@@ -7,9 +11,9 @@ function saveHome(){
         contentType:false,
         processData:false,
         cache:false,
-        success:function(result){           
+        success:function(result){            
             if(result==1)            
-                toastr.success('Home page details has been Sdaved successfuly', 'Success Alert', {timeOut: 5000});                
+                toastr.success('Home page details has been saved successfuly', 'Success Alert', {timeOut: 5000});                
             else
                 toastr.error('Error in saving home page details', 'Inconceivable!', {timeOut: 5000});
         }
@@ -78,6 +82,11 @@ function saveCourse(){
     
 }
 $(document).ready(function(){
+    $( "#sortable" ).sortable({
+        opacity: 0.6, 
+         cursor: 'move'
+    });
+    $( "#sortable" ).disableSelection();
     $.get('../ajax/GetPages.php',{},function(data,status){
         tinyMCE.triggerSave();
         var page=JSON.parse(data);

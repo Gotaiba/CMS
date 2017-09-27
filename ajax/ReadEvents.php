@@ -8,6 +8,7 @@
                 <th>Picture</th>
                 <th>Start Date</th>
                 <th>End Date</th>
+                <th>Username</th>
                 <th>Posted</th>
                 <th>Action</th>
             </tr>';
@@ -30,6 +31,7 @@
                         </td>
                         <td>'.$row['StartDate'].'</td>
                         <td>'.$row['EndDate'].'</td>
+                        <td>'.$row['Username'].'</td>
                         <td>'.$row['Posted'].'</td>
                         <td>
                             <button onClick="GetEventDetails('.$row['Id'].')" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>

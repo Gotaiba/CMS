@@ -11,7 +11,8 @@
 <script type="text/javascript" src="../tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="../js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="../js/canvasjs.min.js"></script>
+<script type="text/javascript" src="../js/Chart.min.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.js"></script>
 <script type="text/javascript" src="../js/wow.min.js"></script>
 <script type="text/javascript" src="../js/toastr.min.js"></script>
 

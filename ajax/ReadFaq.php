@@ -6,6 +6,7 @@
             <tr>
                 <th>Question</th>          
                 <th>Answer</th>
+                <th>Username</th>
                 <th>Posted</th>
                 <th>Action</th>
             </tr>';
@@ -28,6 +29,7 @@
             $data .= '<tr>
                         <td>'.$row['Question'].' ?</td>                  
                         <td>'.$len.'</td>
+                        <td>'.$row['Username'].'</td>
                         <td>'.$row['Posted'].'</td>
                         <td>
                             <button onClick="GetFaqDetails('.$row['Id'].')" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>

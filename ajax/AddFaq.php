@@ -1,13 +1,15 @@
 <?php
     header('Access-Control-Allow-Origin: *');
-    
+    session_start();
     if(isset($_POST["QText"]) && isset($_POST["AnsText"]))
     {
         include('../db/connect.php');
+        include("../functions/getUserInfo.php");
         $QText=$_POST['QText'];
-        $AnsText=$_POST['AnsText'];        
-        $query="Insert Into faq(Question,Answer,Posted)
-        Values('$QText','$AnsText',NOW())";
+        $AnsText=$_POST['AnsText'];       
+        $user=getUserInfo($_SESSION['Id']);
+        $query="Insert Into faq(Question,Answer,Username,Posted)
+        Values('$QText','$AnsText','$user[3]',NOW())";
         if(!$result=mysqli_query($db,$query))
         {
             exit(mysqli_error($db));

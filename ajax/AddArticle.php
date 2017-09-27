@@ -1,8 +1,11 @@
 <?php
+    session_start();
     header('Access-Control-Allow-Origin: *');
     if(isset($_POST['ArtTitle']) && isset($_POST['ArtText']))
     {
         include("../db/connect.php");
+        include("../functions/getUserInfo.php");
+        $user=getUserInfo($_SESSION['Id']);
         $ArtText=$_POST['ArtText'];
         $ArtTitle=$_POST['ArtTitle'];          
         $file=$_FILES['ArtImg']['name'];
@@ -12,8 +15,8 @@
             $location='../uploads/';
             if(move_uploaded_file($file_name,$location.$file))
             {
-                $query="Insert Into articles(Title,ArticleText,ImageUrl,Posted)
-                Values('$ArtTitle','$ArtText','../uploads/$file',NOW())";
+                $query="Insert Into articles(Title,ArticleText,ImageUrl,Username,Posted)
+                Values('$ArtTitle','$ArtText','../uploads/$file','$user[3]',NOW())";
                 if(!$result = mysqli_query($db,$query))
                 {
                     exit(mysqli_error($db));
@@ -25,8 +28,8 @@
         {
             if(!empty($ArtText) &&!empty($ArtTitle))
             {
-                $query="Insert Into articles(Title,ArticleText,ImageUrl,Posted)
-                Values('$ArtTitle','$ArtText','../uploads/noImg.png',NOW())";
+                $query="Insert Into articles(Title,ArticleText,ImageUrl,Username,Posted)
+                Values('$ArtTitle','$ArtText','../uploads/noImg.png','$user[3]',NOW())";
                 if(!$result = mysqli_query($db,$query))
                 {
                     exit(mysqli_error($db));

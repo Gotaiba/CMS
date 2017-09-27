@@ -6,6 +6,7 @@
             <tr>
                 <th>Title</th>          
                 <th>Picture</th>
+                <th>Username</th>
                 <th>Posted</th>
                 <th>Action</th>
             </tr>';
@@ -26,6 +27,7 @@
                         <img src="'.$row['ImageUrl'].'"/>
                         </div>
                         </td>
+                        <td>'.$row['Username'].'</td>
                         <td>'.$row['Posted'].'</td>
                         <td>
                             <button onClick="GetArticleDetails('.$row['Id'].')" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
