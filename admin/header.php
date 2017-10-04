@@ -43,7 +43,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav" style="margin-left:0;">
                 <li class="sidebar-brand">
-                    <img src="../img/logo.png" height="100" />
+                    <img src="../img/big-logo.png" height="100" />
                         <a href="#menu-toggle"  id="menu-toggle" style="margin-top:20px;float:right;" > <i class="fa fa-bars " style="font-size:20px !Important;" aria-hidden="true" aria-hidden="true"></i> 
                     
                 </li>

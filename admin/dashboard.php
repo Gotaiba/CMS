@@ -59,8 +59,8 @@
                 </div>
                 </a>
             </div>
-              <div class="col-md-3 dash-rect art-bar wow fadeInUp"  data-wow-delay="0.3s">
-                  <a href="faq.php" class="dash-anchor">
+              <div class="col-md-3 dash-rect art-bar wow fadeInUp"  data-wow-delay="0.1s">
+                  <a href="articles.php" class="dash-anchor">
                 <div class="col-md-6 count-shape art-adj">
                     <i class="fa fa-4x fa-book" aria-hidden="true"></i>
                 </div>
@@ -72,7 +72,7 @@
                 </div>
                   </a>
             </div>
-              <div class="col-md-3 dash-rect faq-bar wow fadeInUp"  data-wow-delay="0.8s">
+              <div class="col-md-3 dash-rect faq-bar wow fadeInUp"  data-wow-delay="0.2s">
                   <a href="faq.php" class="dash-anchor">
                 <div class="col-md-6 count-shape faq-adj">
                     <i class="fa fa-4x fa-question-circle" aria-hidden="true"></i>
@@ -85,7 +85,7 @@
                 </div>
                   </a>
             </div>
-              <div class="col-md-3 dash-rect evt-bar wow fadeInUp"  data-wow-delay="1s">
+              <div class="col-md-3 dash-rect evt-bar wow fadeInUp"  data-wow-delay="0.3s">
                   <a href="events.php" class="dash-anchor">
                 <div class="col-md-6 count-shape evt-adj">
                     <i class="fa fa-4x fa-calendar-check-o" aria-hidden="true"></i>

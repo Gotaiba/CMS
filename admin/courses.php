@@ -110,6 +110,7 @@
             
             <div class="form-group">
                 <label for="CrsDes">Description Text</label>
+                &nbsp;<span class="text-danger" id="errContent"></span>
                 <textarea class="editor" id="CrsDes" name="CrsDes"></textarea>                   
             </div>        
  

@@ -5,8 +5,9 @@
     {
         include('../db/connect.php');
         include("../functions/getUserInfo.php");
-        $QText=$_POST['QText'];
-        $AnsText=$_POST['AnsText'];       
+        include("../functions/security.php");
+        $QText=escape($_POST['QText']);
+        $AnsText=escape($_POST['AnsText']);     
         $user=getUserInfo($_SESSION['Id']);
         $query="Insert Into faq(Question,Answer,Username,Posted)
         Values('$QText','$AnsText','$user[3]',NOW())";

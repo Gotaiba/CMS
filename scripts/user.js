@@ -10,8 +10,7 @@ function adduser(){
                 contentType:false,
                 processData:false,
                 cache: false,
-                success: function(result){    
-                    alert(result);
+                success: function(result){                    
                     $("#add_new_record_modal").modal("hide");
                     if(result==1)            
                         toastr.success('User has been added successfuly', 'Success Alert', {timeOut: 5000});                
@@ -48,8 +47,7 @@ function UpdateUser(){
                 contentType:false,
                 processData:false,
                 cache: false,
-                success: function(result){           
-                    alert(result);
+                success: function(result){                               
                     $("#add_new_record_modal").modal("hide");
                     if(result==1)            
                         toastr.success('User has been updated successfuly', 'Success Alert', {timeOut: 5000});                
@@ -97,13 +95,12 @@ function DeleteUser(id)
         $.post("../ajax/DeleteUser.php", {
                 id: id
             },
-            function (data, status) {  
-            alert(data);
+            function (data, status) {             
                 if(data==1 && status=="success")
                     toastr.success('User has been deleted successfuly','Success Alert',{timeOut:5000});
                 else
                      toastr.error('Error in Deleteing the user', 'Inconceivable!', {timeOut: 5000});
-                readfaq();
+                ReadUsers();
             }
         );
     }

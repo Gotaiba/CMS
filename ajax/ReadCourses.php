@@ -27,10 +27,10 @@
                         <td>'.$row['Name'].'</td>                  
                         <td>
                         <div class="thumbnailcus table-img">
-                        <img src="'.$row['ImageUrl'].'"/>
+                        <img src="../'.$row['ImageUrl'].'"/>
                         </div>
                         </td>
-                        <td>'.$row['Price'].'$</td>
+                        <td>'.number_format($row['Price']).'$</td>
                         <td>'.$row['StartDate'].'</td>
                         <td>'.$row['EndDate'].'</td>
                         <td>'.$row['Username'].'</td>

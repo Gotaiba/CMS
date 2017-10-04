@@ -2,6 +2,12 @@ var validator;
 function addcourse() {  
     if($("#superform").valid())
         {
+            var content=tinyMCE.get('CrsDes').getContent();
+            if(content=='')
+                {
+                    $("#errContent").text('* Please enter the course content');
+                    return false;
+                }
              var data=new FormData($('#superform')[0]);
             data.append('CrsDes',tinyMCE.get('CrsDes').getContent());  
             var price=$("#CrsPrice").val();
@@ -26,7 +32,8 @@ function addcourse() {
                 contentType:false,
                 processData:false,
                 cache: false,
-                success: function(result){           
+                success: function(result){   
+                    $("#errContent").text('');
                     $("#add_new_record_modal").modal("hide");
                     if(result==1)            
                         toastr.success('Course has been added successfuly', 'Success Alert', {timeOut: 5000});                
@@ -66,10 +73,12 @@ function GetCourseDetails(id){
     $('.error').text('');
     $("#CrsName").val(course.Name);
     $("#CrsPrice").val(course.Price);
-    $("#prvImg").attr('src',course.ImageUrl);
+    $("#prvImg").attr('src','../'+course.ImageUrl);
     $("#StartDate").val(course.StartDate);
     $("#EndDate").val(course.EndDate);
-    tinymce.get('CrsDes').setContent(course.Description);
+    var des=decodeEntities(course.Description);
+    des=decodeEntities(des); 
+    tinymce.get('CrsDes').setContent(des);
     //$("#btnSubmit").removeAttr('onclick');
     //$("#btnSubmit").attr('onclick','UpdateCourse()');
     //document.getElementById('btnSubmit').onclick = function () { UpdateCourse() }; 
@@ -88,6 +97,12 @@ function GetCourseDetails(id){
 function UpdateCourse(){
      $("#CrsImg").rules("remove", "required");
      if($("#superform").valid()){
+         var content=tinyMCE.get('CrsDes').getContent();
+            if(content=='')
+                {
+                    $("#errContent").text('* Please enter the course content');
+                    return false;
+                }
          var data=new FormData($('#superform')[0]);
         data.append('CrsDes',tinyMCE.get('CrsDes').getContent());  
         var price=$("#CrsPrice").val();
@@ -114,6 +129,7 @@ function UpdateCourse(){
             cache: false,
             success: function(result){           
                 $("#add_new_record_modal").modal("hide");
+                 $("#errContent").text('');
                 if(result==1)            
                     toastr.success('Course has been updated successfuly', 'Success Alert',{timeOut: 5000});                
                 else

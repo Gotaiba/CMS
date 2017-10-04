@@ -6,8 +6,9 @@
     {
         include("../db/connect.php");
         include("../functions/getUserInfo.php");
-        $QText=$_POST['QText'];
-        $AnsText=$_POST['AnsText'];   
+         include("../functions/security.php");
+        $QText=escape($_POST['QText']);
+        $AnsText=escape($_POST['AnsText']);   
         $Faq_Id=$_POST['FaqId'];
          $user=getUserInfo($_SESSION['Id']);
         if(!empty($QText) && !empty($AnsText) && !empty($Faq_Id))

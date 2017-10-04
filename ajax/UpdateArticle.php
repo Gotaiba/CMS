@@ -8,8 +8,9 @@
     {
         include("../db/connect.php");
         include("../functions/getUserInfo.php");
-        $ArtText=$_POST['Update_ArtText'];
-        $ArtTitle=$_POST['Update_ArtTitle'];    
+        include("../functions/security.php");   
+        $ArtText=escape($_POST['Update_ArtText']);
+        $ArtTitle=escape($_POST['Update_ArtTitle']);     
         $ArtId=$_POST['ArticleId'];
         $file=$_FILES['Update_ArtImg']['name'];
         $file_name=$_FILES['Update_ArtImg']['tmp_name'];
@@ -18,7 +19,7 @@
         {  
             if(move_uploaded_file($file_name,"../uploads/$file"))
             {
-                $query="Update articles set Title='$ArtTitle', ArticleText='$ArtText', Username='$user[3]', ImageUrl='../uploads/$file', Posted=NOW() Where Id='$ArtId'";
+                $query="Update articles set Title='$ArtTitle', ArticleText='$ArtText', Username='$user[3]', ImageUrl='uploads/$file', Posted=NOW() Where Id=$ArtId";
                 if(!$result=mysqli_query($db,$query))                
                     exit(mysqli_error($db));                
                 else                
@@ -29,7 +30,7 @@
         }
         else
         {
-            $query="Update articles set Title='$ArtTitle', ArticleText='$ArtText', Username='$user[3], Posted=NOW() Where Id='$ArtId'";
+            $query="Update articles set Title='$ArtTitle', ArticleText='$ArtText', Username='$user[3]', Posted=NOW() Where Id=$ArtId";
             if(!$result=mysqli_query($db,$query))        
                 exit(mysqli_error($db));   
             else

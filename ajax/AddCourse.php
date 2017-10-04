@@ -5,8 +5,9 @@
     {
         include('../db/connect.php');
         include("../functions/getUserInfo.php");
-        $CrsName=$_POST['CrsName'];
-        $CrsDes=$_POST['CrsDes'];
+         include("../functions/security.php");
+        $CrsName=escape($_POST['CrsName']);
+        $CrsDes=escape($_POST['CrsDes']);
         $StartDate=date('Y-m-d', strtotime($_POST['StartDate']));
         $EndDate=date('Y-m-d', strtotime($_POST['EndDate']));
         $Price=$_POST['CrsPrice'];
@@ -16,7 +17,7 @@
         if(move_uploaded_file($FileName,'../uploads/'.$File))
         {
             $query="Insert Into courses(Name,ImageUrl,Description,StartDate,EndDate,Price,Username,Posted)
-            Values('$CrsName','../uploads/$File','$CrsDes','$StartDate','$EndDate','$Price','$user[3]',NOW())";
+            Values('$CrsName','uploads/$File','$CrsDes','$StartDate','$EndDate','$Price','$user[3]',NOW())";
             if(!$result=mysqli_query($db,$query))
             {
                 exit(mysqli_error($db));

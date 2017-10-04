@@ -46,7 +46,9 @@ function GetFaqDetails(id)
     },function(data,status){
         var faq=JSON.parse(data);    
         $("#QText").val(faq.Question);
-        tinymce.get('AnsText').setContent(faq.Answer);
+        var des=decodeEntities(faq.Answer);
+        des=decodeEntities(des);     
+        tinymce.get('AnsText').setContent(des);
         $("#btnSubmit").hide();
         $("#btnUpdate").show();
     });

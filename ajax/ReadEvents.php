@@ -26,7 +26,7 @@
                         <td>'.$row['Name'].'</td>                  
                         <td>
                         <div class="thumbnailcus table-img">
-                        <img src="'.$row['ImageUrl'].'"/>
+                        <img src="../'.$row['ImageUrl'].'"/>
                         </div>
                         </td>
                         <td>'.$row['StartDate'].'</td>

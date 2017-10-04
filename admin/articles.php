@@ -58,8 +58,12 @@
                          <div class="fileUpload btn btn-default">
                                 <i class="fa fa-upload" aria-hidden="true"></i>&nbsp;&nbsp;<span>Upload</span>
                                 <input type="file" class="upload" name="ArtImg" id="ArtImg" onchange="readURL(this);" />
-                        </div>                        
+                        </div>
+                         <div class="col-md-12">
+                            &nbsp;<span class="text-danger" id="errupload"></span>
+                         </div>
                      </div>
+                      
                  </div>   
                 <!--<div id="meida">
                     <ul id="media-list">
@@ -77,7 +81,9 @@
             </div>  
             
             <div class="form-group">
+                 
                 <label for="Arttxt">Articel Text</label>
+                &nbsp;<span class="text-danger" id="errContent"></span>
                 <textarea class="editor" id="ArtText" name="ArtText"></textarea>                   
             </div>        
  
@@ -118,13 +124,17 @@
                          <div class="fileUpload btn btn-default">
                                 <i class="fa fa-upload" aria-hidden="true"></i>&nbsp;&nbsp;<span>Upload</span>
                                 <input type="file" class="upload" name="Update_ArtImg" id="Update_ArtImg" onchange="readURL_Update(this);" />
-                        </div>                        
+                        </div>   
+                          <div class="col-md-12">
+                            &nbsp;<span class="text-danger" id="errupload2"></span>
+                         </div>
                      </div>
                  </div>   
             </div>  
             
             <div class="form-group">
                 <label for="Update_ArtText">Articel Text</label>
+                &nbsp;<span class="text-danger" id="errContentup"></span>
                 <textarea class="editor" id="Update_ArtText" name="Update_ArtText"></textarea>  
                 <input type="hidden" id="ArticleId" name="ArticleId"/>
             </div>        

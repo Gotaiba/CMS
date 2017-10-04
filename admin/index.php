@@ -16,7 +16,7 @@ if(!empty($_POST))
 		if(!empty($username) && !empty($password))
 		{      
             $password=md5($password);
-            $query="Select * from users where Username='$username' And Password='$password'";        
+            $query="Select * from users where Username='$username' And Password='$password' And IsDeleted=0";        
 			if($result=mysqli_query($db,$query))
 			{
 				if(mysqli_num_rows($result)>0)

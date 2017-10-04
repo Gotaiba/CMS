@@ -1,6 +1,8 @@
 <?php
     
     include('../db/connect.php');
+    session_start();
+    $userId=$_SESSION['Id'];
     $len="";
     $data='<table class="table table-bordered" id="allFaq">
             <tr>
@@ -20,7 +22,25 @@
     if(mysqli_num_rows($result)>0)
     {
         while($row=mysqli_fetch_assoc($result))
-        {        
+        {   if($userId==$row['Id'])
+            {
+                $data .= '<tr>
+                        <td>'.$row['FirstName'].' </td>                  
+                        <td>'.$row['LastName'].'</td>
+                        <td>'.$row['Email'].'</td>
+                        <td>'.$row['Username'].'</td>
+                        <td>'.$row['Created'].'</td>
+                        <td style="text-align:center;width:230px;">
+                            <button onClick="GetUserDetails('.$row['Id'].')" class="btn btn-sm btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>                            
+                            <button type="button" onClick="RestPass('.$row['Id'].',this)" class="btn btn-sm btn-primary"><i class="fa fa-repeat" aria-hidden="true"></i> Reset</button>
+                            <div class="reset">
+                            <input type="password" id="resetPass'.$row['Id'].'" placeholder="New Password" class="form-control"/>
+                            </div>
+                            </td>
+                        </tr>';
+            }
+            else
+            {
             $data .= '<tr>
                         <td>'.$row['FirstName'].' </td>                  
                         <td>'.$row['LastName'].'</td>
@@ -36,6 +56,7 @@
                             </div>
                             </td>
                         </tr>';
+            }
         }    
     }
     else

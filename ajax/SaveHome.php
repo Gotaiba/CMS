@@ -1,11 +1,12 @@
 <?php
     header('Access-Control-Allow-Origin: *');
     include('../db/connect.php');
+    include("../functions/security.php");
     if(isset($_POST['HomeTitle'])&& isset($_POST['HomeSubtitle']))
     {
         $neworder=$_POST['ID'];
-        $Title=$_POST['HomeTitle'];
-        $Subtitle=$_POST['HomeSubtitle'];
+        $Title=escape($_POST['HomeTitle']);
+        $Subtitle=escpae($_POST['HomeSubtitle']);
         $query="Update pages Set Title='$Title',Subtitle='$Subtitle',Created=NOW() Where Name='Home'";
         if(!$result=mysqli_query($db,$query))
             exit(mysqli_error($db));

@@ -2,6 +2,12 @@ var validator;
 function addevent() {  
     if($("#superform").valid())
         {
+             var content=tinyMCE.get('EvtDes').getContent();
+            if(content=='')
+                {
+                    $("#errContent").text('* Please enter the event content');
+                    return false;
+                }
              var data=new FormData($('#superform')[0]);
             data.append('EvtDes',tinyMCE.get('EvtDes').getContent());  
              var startDate = new Date($('#StartDate').val());
@@ -18,7 +24,8 @@ function addevent() {
                 contentType:false,
                 processData:false,
                 cache: false,
-                success: function(result){           
+                success: function(result){
+                    $("#errContent").text('');
                     $("#add_new_record_modal").modal("hide");
                     if(result==1)            
                         toastr.success('Event has been added successfuly', 'Success Alert', {timeOut: 5000});                
@@ -47,7 +54,6 @@ function readEvents(){
 }
 
 function GetEventDetails(id){
-    
     $("#EventId").val(id);
     $.post("../ajax/GetEventDetails.php",{
         id:id
@@ -56,10 +62,12 @@ function GetEventDetails(id){
     $('.text-danger').text('');
     $('.error').text('');
     $("#EvtName").val(course.Name);
-    $("#prvImg").attr('src',course.ImageUrl);
+    $("#prvImg").attr('src','../'+course.ImageUrl);
     $("#StartDate").val(course.StartDate);
     $("#EndDate").val(course.EndDate);
-    tinymce.get('EvtDes').setContent(course.Description);
+    var des=decodeEntities(course.Description);
+    des=decodeEntities(des);     
+    tinymce.get('EvtDes').setContent(des);      
     //$("#btnSubmit").removeAttr('onclick');
     //$("#btnSubmit").attr('onclick','UpdateCourse()');
     //document.getElementById('btnSubmit').onclick = function () { UpdateCourse() }; 
@@ -73,6 +81,12 @@ function GetEventDetails(id){
 function UpdateEvent(){
      $("#EvtImg").rules("remove", "required");
      if($("#superform").valid()){
+         var content=tinyMCE.get('EvtDes').getContent();
+            if(content=='')
+                {
+                    $("#errContent").text('* Please enter the event content');
+                    return false;
+                }
          var data=new FormData($('#superform')[0]);
         data.append('EvtDes',tinyMCE.get('EvtDes').getContent());         
          var startDate = new Date($('#StartDate').val());
@@ -89,7 +103,9 @@ function UpdateEvent(){
             contentType:false,
             processData:false,
             cache: false,
-            success: function(result){           
+            success: function(result){   
+                $("#errContent").text('');
+                alert(result);
                 $("#add_new_record_modal").modal("hide");
                 if(result==1)            
                     toastr.success('Event has been updated successfuly', 'Success Alert',{timeOut: 5000});                

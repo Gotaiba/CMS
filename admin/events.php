@@ -90,6 +90,7 @@
             
             <div class="form-group">
                 <label for="EvtDes">Description</label>
+                &nbsp;<span class="text-danger" id="errContent"></span>
                 <textarea class="editor" id="EvtDes" name="EvtDes"></textarea>                   
             </div>        
  

@@ -96,19 +96,19 @@ $(document).ready(function(){
         $("#AbtTitle").val(page[0].Title);
         $("#AbtSubtitle").val(page[0].Subtitle);
         if(page[0].ImageUrl!=null)
-            $("#prvImgAbt").attr('src',page[0].ImageUrl);    
-        $("#AbtContent").val(page[0].Content);
+            $("#prvImgAbt").attr('src','../'+page[0].ImageUrl);    
+        $("#AbtContent").html(page[0].Content);
         //------------Library--------------
         $("#LibTitle").val(page[3].Title);
         $("#LibSubtitle").val(page[3].Subtitle);
         if(page[3].ImageUrl!=null)
-            $("#prvImgLib").attr('src',page[3].ImageUrl);    
-        $("#LibContent").val(page[3].Content);
+            $("#prvImgLib").attr('src','../'+page[3].ImageUrl);    
+        $("#LibContent").html(page[3].Content);
         //------------Course----------------
         $("#CrsTitle").val(page[2].Title);
         $("#CrsSubtitle").val(page[2].Subtitle);
         if(page[2].ImageUrl!=null)
-            $("#prvImgCrs").attr('src',page[2].ImageUrl);
-        $('#CrsContent').val(page[2].Content);    
+            $("#prvImgCrs").attr('src','../'+page[2].ImageUrl);
+        $('#CrsContent').html(page[2].Content);    
     });
 });

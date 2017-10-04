@@ -5,8 +5,9 @@
     {
         include('../db/connect.php');
         include("../functions/getUserInfo.php");
-        $EvtName=$_POST['EvtName'];
-        $EvtDes=$_POST['EvtDes'];
+        include("../functions/security.php");
+        $EvtName=escape($_POST['EvtName']);
+        $EvtDes=escape($_POST['EvtDes']); 
         $StartDate=date('Y-m-d', strtotime($_POST['StartDate']));
         $EndDate=date('Y-m-d', strtotime($_POST['EndDate']));       
         $File=$_FILES['EvtImg']['name'];
@@ -15,7 +16,7 @@
         if(move_uploaded_file($FileName,'../uploads/'.$File))
         {
             $query="Insert Into events(Name,ImageUrl,Description,StartDate,EndDate,Username,Posted)
-            Values('$EvtName','../uploads/$File','$EvtDes','$StartDate','$EndDate','$user[3]',NOW())";
+            Values('$EvtName','uploads/$File','$EvtDes','$StartDate','$EndDate','$user[3]',NOW())";
             if(!$result=mysqli_query($db,$query))
             {
                 exit(mysqli_error($db));

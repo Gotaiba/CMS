@@ -6,8 +6,9 @@
     {
         include("../db/connect.php");
        include("../functions/getUserInfo.php");
-       $CrsName=$_POST['CrsName'];
-        $CrsDes=$_POST['CrsDes'];
+       include("../functions/security.php");
+       $CrsName=escape($_POST['CrsName']);
+        $CrsDes=escape($_POST['CrsDes']);
         $CrsId=$_POST['CourseId'];
         $StartDate=date('Y-m-d', strtotime($_POST['StartDate']));
         $EndDate=date('Y-m-d', strtotime($_POST['EndDate']));
@@ -19,7 +20,7 @@
         {  
             if(move_uploaded_file($file_name,"../uploads/$file"))
             {
-                $query="Update courses set Name='$CrsName', Description='$CrsDes', Username='$user[3]', ImageUrl='../uploads/$file', StartDate='$StartDate', EndDate='$EndDate', Price='$Price', Posted=NOW() Where Id='$CrsId'";
+                $query="Update courses set Name='$CrsName', Description='$CrsDes', Username='$user[3]', ImageUrl='uploads/$file', StartDate='$StartDate', EndDate='$EndDate', Price='$Price', Posted=NOW() Where Id='$CrsId'";
                 if(!$result=mysqli_query($db,$query))                
                     exit(mysqli_error($db));                
                 else                
