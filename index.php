@@ -435,7 +435,7 @@
     $('#container').html(' <h3>Our Facebook Page</h3><div class="fb-page" ' + 
     'data-href="http://www.facebook.com/ECPPuptodatepharmacist"' +
     ' data-width="' + container_width + '" data-tabs="timeline" data-small-header="true" data-height="400" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="http://www.facebook.com/ECPPuptodatepharmacist"><a href="http://www.facebook.com/ECPPuptodatepharmacist">Excellence in Clinical Pharmacy Practice - ECPP</a></blockquote></div></div>');
-    FB.XFBML.parse( );    
+    FB.XFBML.parse();    
   }, 100);  
 }); 
 });
