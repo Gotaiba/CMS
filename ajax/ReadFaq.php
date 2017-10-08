@@ -20,7 +20,7 @@
     {
         while($row=mysqli_fetch_assoc($result))
         {
-            $len=$row['Answer'];
+            $len=html_entity_decode($row['Answer']);
             if(strlen($len)>60)
             {
                 $len=substr($len,0,60);

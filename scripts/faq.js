@@ -45,7 +45,7 @@ function GetFaqDetails(id)
         id:id
     },function(data,status){
         var faq=JSON.parse(data);    
-        $("#QText").val(faq.Question);
+        $("#QText").val(decodeEntities(faq.Question));
         var des=decodeEntities(faq.Answer);
         des=decodeEntities(des);     
         tinymce.get('AnsText').setContent(des);
@@ -76,8 +76,7 @@ function UpdateFaq()
                 contentType:false,
                 processData:false,
                 cache: false,
-                success: function(result){  
-                    alert(result);
+                success: function(result){                    
                     $("#add_new_record_modal").modal("hide");
                     if(result==1)            
                         toastr.success('Question has been updated successfuly', 'Success Alert', {timeOut: 5000});                

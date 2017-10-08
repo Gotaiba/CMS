@@ -45,8 +45,9 @@ if(!empty($_POST))
 		}		
 	}
 }
-
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +63,7 @@ if(!empty($_POST))
     	    <div class="col-xs-12">
         	    <div class="form-wrap">
                     <div class="logo">
-                         <img src="../img/logo.png" height="200" alt="ECPP Logo"/>
+                         <img src="../img/admin-logo.png" alt="ECPP Logo"/>
                     </div>            
                     <form role="form" action="index.php" method="post" id="login-form" autocomplete="off">
                         <div class="form-group">

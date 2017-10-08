@@ -71,7 +71,7 @@ function GetCourseDetails(id){
     var course=JSON.parse(data);
     $('.text-danger').text('');
     $('.error').text('');
-    $("#CrsName").val(course.Name);
+    $("#CrsName").val(decodeEntities(course.Name));
     $("#CrsPrice").val(course.Price);
     $("#prvImg").attr('src','../'+course.ImageUrl);
     $("#StartDate").val(course.StartDate);

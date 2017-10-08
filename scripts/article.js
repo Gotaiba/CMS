@@ -91,7 +91,7 @@ function GetArticleDetails(id)
         id:id
     },function(data,status){
         var article=JSON.parse(data);
-        $("#Update_ArtTitle").val(article.Title);    
+        $("#Update_ArtTitle").val(decodeEntities(article.Title));    
         var des=decodeEntities(article.ArticleText);
         des=decodeEntities(des); 
         tinymce.get('Update_ArtText').setContent(des);     

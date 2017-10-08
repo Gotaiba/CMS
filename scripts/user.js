@@ -126,9 +126,9 @@ function saveRest(id)
             Pass:newpass
            },function(data,status) {
         if(data==1 && status=="success")
-                    toastr.success('User has been deleted successfuly','Success Alert',{timeOut:5000});
+                    toastr.success('Password has been changed successfuly','Success Alert',{timeOut:5000});
                 else
-                     toastr.error('Error in Deleteing the user', 'Inconceivable!', {timeOut: 5000});
+                     toastr.error('Error in changing user password', 'Inconceivable!', {timeOut: 5000});
     });   
     var btnreset='<i class="fa fa-repeat" aria-hidden="true"></i> Reset'
     $('#resetPass'+id).parent().prev().html(btnreset);

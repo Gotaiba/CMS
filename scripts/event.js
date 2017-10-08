@@ -61,7 +61,7 @@ function GetEventDetails(id){
     var course=JSON.parse(data);
     $('.text-danger').text('');
     $('.error').text('');
-    $("#EvtName").val(course.Name);
+    $("#EvtName").val(decodeEntities(course.Name));
     $("#prvImg").attr('src','../'+course.ImageUrl);
     $("#StartDate").val(course.StartDate);
     $("#EndDate").val(course.EndDate);
@@ -104,8 +104,7 @@ function UpdateEvent(){
             processData:false,
             cache: false,
             success: function(result){   
-                $("#errContent").text('');
-                alert(result);
+                $("#errContent").text('');             
                 $("#add_new_record_modal").modal("hide");
                 if(result==1)            
                     toastr.success('Event has been updated successfuly', 'Success Alert',{timeOut: 5000});                

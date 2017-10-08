@@ -38,28 +38,28 @@
                     <div class="form-group">
                         <label for="FName" class="control-lable col-md-3">First Name</label>
                         <div class="col-md-8">
-                            <input type="text" id="FName" name="FName"  placeholder="First Name..." class="form-control"/>
+                            <input type="text" id="FName" name="FName" onkeypress="return blockChar(event , this)"  placeholder="First Name..." class="form-control"/>
                         </div>                
                     </div>
                     <br/> <br/>
                     <div class="form-group">
                         <label for="LName" class="control-lable col-md-3">Last Name</label>
                         <div class="col-md-8">
-                            <input type="text" id="LName" name="LName"  placeholder="Last Name..." class="form-control"/>
+                            <input type="text" id="LName" name="LName" onkeypress="return blockChar(event , this)"  placeholder="Last Name..." class="form-control"/>
                         </div>                
                     </div> 
                     <br/> <br/>
                     <div class="form-group">
                         <label for="Email" class="control-lable col-md-3">Email</label>
                         <div class="col-md-8">
-                            <input type="text" id="Email" name="Email"  placeholder="example@example.com" class="form-control"/>
+                            <input type="text" id="Email" name="Email" onkeypress="return blockChar(event , this)"  placeholder="example@example.com" class="form-control"/>
                         </div>                
                     </div> 
                     <br/> <br/>
                     <div class="form-group">
                         <label for="Usrname" class="control-lable col-md-3">Username</label>
                         <div class="col-md-7">
-                            <input type="text" id="Usrname" name="Usrname" placeholder="Username..." class="form-control"/>
+                            <input type="text" id="Usrname" name="Usrname" onkeypress="return blockChar(event , this)" placeholder="Username..." class="form-control"/>                             
                         </div>                
                     </div>  
                     <br/> <br/>
@@ -98,3 +98,25 @@
 
 <?php include 'footer.php';  ?>
 <script type="text/javascript" src="../scripts/user.js"></script>
+<script type="text/javascript">
+
+    function blockChar(e , element)
+    {
+        
+        if(e.which == 39)
+            {
+                $(element).after('<span class="text-danger errmsg"> Not Allowed</span>');
+                $(".errmsg").fadeOut("slow");
+                return false;
+            }
+    }
+    /*$("#Usrname").keypress(function (e) {
+     //if the letter is not digit then display error and don't type anything    
+     if (e.which==39) {
+        //display error message
+        $("#errmsg").html("Not allowed").show().fadeOut("slow");
+               return false;
+    }        
+   });*/
+    
+</script>

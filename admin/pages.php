@@ -46,7 +46,7 @@
                                     <?php
                                         while($row=mysqli_fetch_assoc($result))
                                         {
-                                            echo '<li id="ID_'.$row['Id'].'"><span>'.$row['Name'].'</span></li>';
+                                            echo '<li id="ID_'.$row['Id'].'"><span><i class="fa fa-arrows" aria-hidden="true"></i></span> <input type="text" name="Nav_'.$row['Id'].'" class="form-control" value="'.$row['Name'].'" /></li>';
                                         }
                                     ?>
                                 </ul>

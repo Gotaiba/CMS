@@ -3,6 +3,7 @@ function saveHome(){
     var data=new FormData($("#HomePage")[0]);
     var order = $("#sortable").sortable("serialize");
     var jso=JSON.stringify(order);
+    console.log(jso);
     data.append('ID',jso);
     $.ajax({
         type:"POST",
@@ -11,14 +12,15 @@ function saveHome(){
         contentType:false,
         processData:false,
         cache:false,
-        success:function(result){            
+        success:function(result){ 
+             console.log(result);
             if(result==1)            
                 toastr.success('Home page details has been saved successfuly', 'Success Alert', {timeOut: 5000});                
             else
                 toastr.error('Error in saving home page details', 'Inconceivable!', {timeOut: 5000});
         }
         
-    });
+    })
     
 }
 function saveAbout(){
@@ -90,23 +92,23 @@ $(document).ready(function(){
     $.get('../ajax/GetPages.php',{},function(data,status){
         tinyMCE.triggerSave();
         var page=JSON.parse(data);
-        $("#HomeTitle").val(page[1].Title);
-        $("#HomeSubtitle").val(page[1].Subtitle);
+        $("#HomeTitle").val(decodeEntities(page[1].Title));
+        $("#HomeSubtitle").val(decodeEntities(page[1].Subtitle));
         //----------About--------------
-        $("#AbtTitle").val(page[0].Title);
-        $("#AbtSubtitle").val(page[0].Subtitle);
+        $("#AbtTitle").val(decodeEntities(page[0].Title));
+        $("#AbtSubtitle").val(decodeEntities(page[0].Subtitle));
         if(page[0].ImageUrl!=null)
             $("#prvImgAbt").attr('src','../'+page[0].ImageUrl);    
-        $("#AbtContent").html(page[0].Content);
+        $("#AbtContent").html(decodeEntities(page[0].Content));
         //------------Library--------------
-        $("#LibTitle").val(page[3].Title);
-        $("#LibSubtitle").val(page[3].Subtitle);
+        $("#LibTitle").val(decodeEntities(page[3].Title));
+        $("#LibSubtitle").val(decodeEntities(page[3].Subtitle));
         if(page[3].ImageUrl!=null)
             $("#prvImgLib").attr('src','../'+page[3].ImageUrl);    
         $("#LibContent").html(page[3].Content);
         //------------Course----------------
-        $("#CrsTitle").val(page[2].Title);
-        $("#CrsSubtitle").val(page[2].Subtitle);
+        $("#CrsTitle").val(decodeEntities(page[2].Title));
+        $("#CrsSubtitle").val(decodeEntities(page[2].Subtitle));
         if(page[2].ImageUrl!=null)
             $("#prvImgCrs").attr('src','../'+page[2].ImageUrl);
         $('#CrsContent').html(page[2].Content);    

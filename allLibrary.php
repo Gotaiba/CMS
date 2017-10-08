@@ -23,7 +23,7 @@
                             echo ' <div class="col-md-10 col-md-offset-1 lib-main">
                         <div class="col-md-3">
                         <div class="lib-img">
-                            <img src="'.$row['ImageUrl'].'" />
+                           <a href="http://ecpp-ph.com/temp/'.$row['ImageUrl'].'"> <img src="'.$row['ImageUrl'].'" /></a>
                         </div>
                     </div>
                     <div class="col-md-7">

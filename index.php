@@ -106,7 +106,7 @@
                          <h3><?php echo html_entity_decode($pages_content[8])?></h3>
                             <p><?php echo html_entity_decode($pages_content[9])?></p>
                     </div>
-                    <div class="events-section wow fadeInUp" data-wow-delay="1.3s">
+                    <div id="events" class="events-section">
                         <h2>Upcoming Events</h2>
                         <ul>
                             <?php
@@ -189,7 +189,7 @@
                     </div>
                    
                 </div>
-            </div>
+            </div>           
             <!-- This is Courses Section -->
             <div class="row content-filler" id="Courses">
                 <div class="col-md-6 text-center wow fadeInUp">

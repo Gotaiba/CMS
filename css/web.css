@@ -390,13 +390,12 @@ a {
     padding-left: 20px;
     padding-right: 10px;
     padding-bottom: 15px;
-    height: 200px;
+    height: 220px;
     overflow: hidden;
     position: relative;
 }
 .crs-content h2{
-    font-size: 30px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
 }
 .crs-content span{
@@ -442,11 +441,9 @@ a {
     font-family: QuickSand;
     font-weight: 400;
     text-align: center;
-    background-color: #be9c6c;
+    background-color: #6697ab;
     padding: 10px;
     border-radius: 2px;
-    border-right: 5px solid #a27c46;
-    border-left: 5px solid #a27c46;
     margin-top: 4px;
 }
 .crs-table tr td label{
@@ -753,6 +750,9 @@ footer .copyright {
     .main-title h3{
         font-size: 42px;
     }
+    .main-title{
+        top:45%;
+    }
     .title-img h2{
         font-size: 47px;
     }
@@ -824,13 +824,7 @@ footer .copyright {
     }
     
 }
-@media (max-width:740px) {
-    .navbar img{
-        margin-left: 7.3em;
-    }
-    .navbar .navbar-collapse{
-        background-color: rgba(89, 139, 159, 0.95);
-    }   
+@media (max-width:768px) {
     .navbar-toggle{
         float: right;
     }
@@ -840,7 +834,7 @@ footer .copyright {
     }
     .events-section{
         position: absolute;
-        top: 53%;
+        top: 45%;
         padding: 10px;
         width: 275px;
         margin: 0px auto;
@@ -867,7 +861,7 @@ footer .copyright {
     }
     .main-title {
         position: absolute;
-        top: 37%;
+        top: 35%;
         left: 20%;
         transform: translate(0%, -20%);
         -webkit-transform: translate(0%, -25%);
@@ -879,16 +873,19 @@ footer .copyright {
     }
     .main-title p{
         padding-top: 0px;
-        font-size: 14px;
-    }
-    .down-btn{
-        display: none;
+        font-size: 16px;
     }
 }
 @media (max-width:540px){
+     .navbar .navbar-collapse{
+        background-color: rgba(89, 139, 159, 0.95);
+    }  
+     .navbar img{
+        margin-left: 7.3em;
+    } 
     .events-section{
         right: 33%;
-        top: 50%;
+        top: 45%;
     }
     .main-title{
         width: 80%;
@@ -901,8 +898,10 @@ footer .copyright {
     .main-title p{
         padding-top: 5px;
     }
+    
     .title-img{
         left: 7%;
+        top: 25%;
     }
     .title-img h2{
         font-size: 35px;
@@ -913,8 +912,11 @@ footer .copyright {
     
 }
 @media (max-width:440px){
+    /*.navbar-header{
+            padding-top: 5px;
+    }*/
     .btn-crs{
-        width: 275px;
+        width: 250px;
     }
     .content-filler h1 {
         font-size: 35px;
@@ -938,23 +940,40 @@ footer .copyright {
         margin-top: 0px;
         margin-bottom: 20px;
     }
+    .title-img{
+        top: 27%;
+        left: 7%;
+    }
     .title-img h2{
         font-size: 27px;
     }
     .main-title {
-        width: 90%;
-        top: 34%;
-        left: 5%;
-    }
-    .main-title h3{
-        font-size: 24px;
+        width: 86%;
+        top: 38%;
+        left: 10%;
     }
     .events-section {
-        right: 29%;
-        top: 51%;
+        right: 50%;
+        top: 65%;
+        transform: translate(50%, -50%);
+        -webkit-transform: translate(50%, -50%);
     }
     .about-text h2{
         font-size: 24px;
+    }
+     .down-btn {
+        display: block;
+        bottom: 0px;
+    }
+    #events{
+        height: 110px;
+        overflow: hidden;
+    }
+    .overlay{
+        overflow: auto;
+    }
+    .crs-table tr td h1{
+        font-size: 27px;
     }
 }
 @media (max-width:400px){
@@ -971,6 +990,20 @@ footer .copyright {
 @media (max-width:320px){
     .crs-table tr td span{
         font-size: 10pt;
+    }
+    .main-title {
+        width: 80%;
+        top: 37%;
+    }
+    .events-section {
+        top: 72%;
+    }
+    .title-img {
+        top: 34%;
+        left: 7%;
+    }
+    h2{
+        font-size: 25px;
     }
 }
 
